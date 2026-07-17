@@ -1,0 +1,4 @@
+Catatan: Tambahkan lagu dari folder audio.
+- File audio yang ada: audio/musik.mp3
+- Perubahan yang dilakukan seharusnya: ganti source lagu-kesukaan.mp3 menjadi musik.mp3 atau buat alias file bila perlu.
+

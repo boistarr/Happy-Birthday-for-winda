@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!🥳🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div id="welcome-screen">
+        <div id="welcome-emoji-container"></div>
+        <div class="login-card">
+        <h2 class="welcome-text">Hi, Winda Aryati</h2>
+        <p class="welcome-sub">Enter the magic code to begin</p>
+        
+        <div class="pin-container">
+            <input type="password" maxlength="1" class="pin-box" id="pin1">
+            <input type="password" maxlength="1" class="pin-box" id="pin2">
+            <input type="password" maxlength="1" class="pin-box" id="pin3">
+            <input type="password" maxlength="1" class="pin-box" id="pin4">
+        </div>
+        
+        <p id="error-message" style="color: #ff8888; font-size: 0.8rem; margin-top: 10px; display: none;">Kode salah, coba lagi ya!</p>
+        
+        <button class="btn-open" onclick="checkPassword()">Unlock</button>
+    </div>
+    </div>
+
+    <!-- Confetti setelah welcome dibuka -->
+    <div id="welcome-confetti" aria-hidden="true"></div>
+
+
+    <!-- Background Partikel Melayang (setelah welcome hilang) -->
+    <div id="particles-container"></div>
+    <div id="emoji-container"></div>
+
+
+    <audio id="bg-music" preload="auto" loop>
+    <source src="ssstik.io_1784133425579.mp3" type="audio/mpeg">
+</audio>
+
+    <nav id="navbar">
+    <div class="brand">
+        <!-- Ikon bintang -->
+        <span class="icon">✨</span> Winda Aryati
+    </div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#letter">Letter</a>
+        <a href="#wishes">Wishes</a>
+    </div>
+</nav>
+
+    <!-- KONTEN UTAMA -->
+    <div class="container">
+        <section id="home" class="hero reveal">
+            <h1>Happy Birthday<br>My Favorite Person</h1>
+            <p>Somewhere past the breakers, ada seseorang yang selalu mendoakan hal-hal baik untukmu. Scroll ke bawah ya, ada sesuatu untukmu hari ini.</p>
+            <div class="music-player" id="music-badge">
+                <button class="music-btn" id="music-toggle" type="button" aria-label="Play/Pause">⏸</button>
+                <span class="music-icon" aria-hidden="true">🎵</span>
+                <span id="music-status">Sedang memutar lagu...</span>
+            </div>
+        </section>
+
+        <!-- Galeri Diganti: Kue Ulang Tahun + Animasi Tiup Lilin -->
+        <section id="gallery" class="reveal">
+            <h2>Let’s celebrate! 🎉🎂</h2>
+            <div class="birthday-show">
+                <div class="cake-emoji-3d" aria-hidden="true">🎂</div>
+
+                <div class="candles-wrap" title="Tap untuk meniup lilin">
+                    <div class="candles-stand" id="candles" onclick="blowCandles()">
+
+                        <span class="candle on">🕯️</span>
+                        <span class="candle on">🕯️</span>
+                        <span class="candle on">🕯️</span>
+                        <span class="candle on">🕯️</span>
+                        <span class="candle on">🕯️</span>
+                    </div>
+                    <div class="blow-hint">Make a wish, then tap the candles ✨</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- BAGIAN SURAT (KADO & KETIK OTOMATIS) -->
+        <section id="letter" class="reveal">
+            <!-- Tampilan Awal: Kado -->
+            <div id="gift-container" onclick="openGift()">
+                <div class="gift-box">🎁</div>
+                <h2>A Message For You</h2>
+                <p>Tap kado ini untuk membukanya...</p>
+            </div>
+
+            <!-- Tampilan Setelah Diklik: Surat Terketik -->
+            <div class="letter-box" id="letter-content" style="display: none;">
+                <h2>Dear you,</h2>
+                <!-- Tempat Teks akan diketik otomatis -->
+                <p id="typewriter-text"></p>
+                <p class="signature" id="typewriter-signature" style="display: none;">— with so much love, always</p>
+            </div>
+        </section>
+
+        <section id="wishes" class="closing reveal" style="margin-bottom: 50px; text-align: center;">
+            <h2 style="text-align: center; margin-bottom: 60px; font-size: 2.4rem;">Wishes for the year ahead</h2>
+            <div class="wishes-grid">
+
+            <!-- Wish 1 -->
+            <div class="wish-card">
+
+            <p>Semoga di usia yang baru ini, semua doa dan impianmu satu per satu menjadi kenyataan. Aku akan selalu jadi orang yang ikut bangga melihat setiap langkahmu. ❤️</p>
+        </div>
+        <!-- Wish 2 -->
+        <div class="wish-card">
+            <p>Terima kasih sudah hadir dan tanpa sadar berhasil bikin hari-hariku jadi lebih berwarna. Semoga kamu nggak pernah kehilangan senyum itu, ya.</p>
+        </div>
+        <!-- Wish 3 -->
+        <div class="wish-card">
+            <p>I hope this new chapter brings you more happiness, more laughter, and all the good things you've been waiting for.</p>
+        </div>
+        <!-- Wish 4 -->
+        <div class="wish-card">
+            <p>Semoga semua yang sedang kamu perjuangkan berjalan dengan lancar. Aku percaya, sedikit demi sedikit kamu pasti bisa sampai di tujuanmu.</p>
+        </div>
+        <!-- Wish 5 -->
+        <div class="wish-card">
+            <p>Stay healthy, stay kind, and keep being the person who always makes the people around you feel comfortable.</p>
+        </div>
+        <!-- Wish 6 -->
+        <div class="wish-card">
+            <p>Happy Birthday. Enjoy your special day, make lots of beautiful memories, and don't forget to smile today.</p>
+        </div>
+    </div>
+</section>
+            <p style="font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 15px; text-align: center;">
+                — Resurfacing, Almost There —
+            </p>
+            <h1 style="font-size: 3.5rem; line-height: 1.2; color: var(--text-main); text-align: center;">
+                Happy Birthday<br>
+                <span style="color: var(--text-gold); font-style: italic;">My favorite girl.</span>
+            </h1>
+
+            <p style="max-width: 700px; margin: 30px auto; font-size: 1.05rem; line-height: 1.8; opacity: 0.9; text-align: center;">
+                Thank you for letting me be a small part of your special day. I really hope today brings you a lot of smiles and reminds you how loved and appreciated you are. Here's to another year of new beginnings, beautiful stories, and little moments that quietly become memories worth keeping. Semoga satu per satu hal baik datang menghampiri kamu, semoga semua yang sedang kamu usahakan berjalan dengan lancar, dan semoga kamu selalu menemukan alasan untuk tetap tersenyum. Take good care of yourself, stay kind, stay warm, and keep shining in your own way. Happy Birthday. 🤍
+            </p>
+
+            
+            <div class="candles" id="candles-bottom" onclick="blowCandles()" style="margin-top: 40px; text-align:center;">🕯️ 🕯️ 🕯️ 🕯️ 🕯️</div>
+
+            <p style="margin-top: 15px; font-style: italic; opacity: 0.8; font-size: 0.9rem; text-align: center;">Make a wish, then tap the candles to blow them out...</p>
+
+        </section>
+
+    <!-- Modal untuk Pop-up Foto -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
